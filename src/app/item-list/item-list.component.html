@@ -1,0 +1,12 @@
+<div [routerLink]='["/item-details",item.id]' *ngFor="let item of ils.items" style="padding: 5px; background: #eee; border: 1px solid black; border-radius: 5px">
+  <div>{{item.name}}</div>
+  <!-- <div>{{item.price}}</div> -->
+</div>
+
+<div
+  [routerLink]="['/item-details2',item.key]"
+  *ngFor="let item of ils.itemMap | keyvalue" style="padding: 5px; background: #eee; border: 1px solid black; border-radius: 5px">
+  {{item.value.name}}
+  <!-- <div>{{item.name}}</div> -->
+  <!-- <div>{{item.price}}</div> -->
+</div>

@@ -1,0 +1,26 @@
+<!-- <div *ngFor="let item of list" style="border:1px solid black; background: gray; padding: 10px">
+    {{item}}
+</div>
+
+<input [(ngModel)]="value" type="number" />
+<span *ngIf="value%2===0">Value is Even</span>
+<span *ngIf="value%2===1">Value is Odd</span> -->
+
+<a routerLink="/" routerLinkActive="activelink">Home</a><br />
+<a routerLink="/todo" routerLinkActive="activelink">Todo</a>
+<hr />
+
+Task Name : <input [(ngModel)]="text" />
+<button [disabled]="text.trim().length===0" (click)="onAddItem()">Add</button>
+<button *ngIf="text.trim().length!==0" (click)="onAddItem()">Add</button>
+<br />
+<div *ngFor="let item of list">
+  <div [class.completed]="item.completed && item.comment.trim().length>0" style="border:1px solid black; background: #ddd; margin: 10px; padding: 5px">
+    {{item.name}}
+    <input type="checkbox" [(ngModel)]="item.completed" />
+    <input *ngIf="item.completed" [(ngModel)]="item.comment" />
+    <button (click)="onCancelTask(item)">Cancel Task</button>
+  </div>
+</div>
+
+<a routerLink="/">Back to Home</a>
